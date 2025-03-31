@@ -1,0 +1,150 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography (Mimicking clean, modern feel) */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* 1. Navbar (Fixed at Top, Dark like dtsprogramming.com) */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #7B1E1E; /* Dark background */
+    padding: 1.5rem;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.navbar a {
+    color: #FAF3E0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar a:hover {
+    color: #00b4d8; /* Light blue hover effect */
+    transition: color 0.3s ease;
+}
+
+/* 2. Welcome Section (Full-screen, centered) */
+.welcome-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAF3E0; /* Light background */
+    text-align: center;
+}
+
+.welcome-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* General Section Styling */
+.section {
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+}
+
+/* 3. Projects Section */
+#projects p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    color: #00b4d8; /* Bright blue like dtsprogramming.com */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* 4. Social Media Section */
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.social-links a:hover {
+    color: #00b4d8;
+    transition: color 0.3s ease;
+}
+
+/* 5. Profile Section */
+#profile {
+    background-color: #FAF3E0;
+}
+
+/* 6. Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-section p {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 3rem 1rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
