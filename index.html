@@ -537,13 +537,7 @@
     </style>
 </head>
 <body>
-    <iframe
-  src="RPG/index.html"
-  width="960"
-  height="540"
-  style="border: none;">
-</iframe>
-
+  
     <!-- Custom cursor elements -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -573,6 +567,292 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <h2>My Projects</h2>
+<div class="project-card">
+    <div class="project-img" style="background-image: url('/api/placeholder/400/320'); background-position: center; background-size: cover; background-color: #f5f5f5;">
+        <!-- RPG Game Image -->
+    </div>
+    <div class="project-content">
+        <h3>Top-Down RPG</h3>
+        <p>An interactive role-playing game built with Godot Engine showcasing game development skills.</p>
+        <button id="play-game-btn" class="project-link">
+            <i class="fas fa-play"></i> Play Game
+        </button>
+    </div>
+</div>
+
+<!-- Game Modal (add this right before the closing body tag) -->
+<div id="game-modal" class="game-modal">
+    <div class="game-modal-content">
+        <div class="game-modal-header">
+            <h2>Top-Down RPG</h2>
+            <div class="game-controls">
+                <button id="pause-game-btn" title="Pause Game">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button id="close-game-btn" title="Close Game">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="game-container">
+            <iframe id="game-iframe" src="about:blank" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS to your existing style section -->
+<style>
+    /* Game Project Card Button */
+    #play-game-btn {
+        background-color: #7B1E1E;
+        color: #FAF3E0;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+    
+    #play-game-btn:hover {
+        background-color: #00b4d8;
+        transform: translateY(-3px);
+    }
+    
+    #play-game-btn i {
+        margin-right: 8px;
+    }
+    
+    /* Game Modal */
+    .game-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        z-index: 2000;
+        overflow: hidden;
+    }
+    
+    .game-modal-content {
+        position: relative;
+        width: 95%;
+        height: 95%;
+        max-width: 1200px;
+        margin: 1% auto;
+        background-color: #FAF3E0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .game-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #7B1E1E;
+        color: #FAF3E0;
+    }
+    
+    .game-modal-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+    
+    .game-controls {
+        display: flex;
+        gap: 0.8rem;
+    }
+    
+    .game-controls button {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: #FAF3E0;
+        border: none;
+        border-radius: 4px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .game-controls button:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+        transform: scale(1.1);
+    }
+    
+    .game-container {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #game-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: #000;
+    }
+    
+    /* Pause overlay for the game */
+    .pause-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #FAF3E0;
+        font-size: 2rem;
+        z-index: 10;
+        display: none;
+    }
+    
+    .pause-overlay i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .game-modal-content {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            border-radius: 0;
+        }
+        
+        .game-modal-header h2 {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+
+<!-- Add this JavaScript to the end of your body or in your existing script section -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elements
+        const playButton = document.getElementById('play-game-btn');
+        const gameModal = document.getElementById('game-modal');
+        const closeButton = document.getElementById('close-game-btn');
+        const pauseButton = document.getElementById('pause-game-btn');
+        const gameIframe = document.getElementById('game-iframe');
+        
+        // Create pause overlay
+        const pauseOverlay = document.createElement('div');
+        pauseOverlay.className = 'pause-overlay';
+        pauseOverlay.innerHTML = '<i class="fas fa-pause"></i><p>Game Paused</p>';
+        document.querySelector('.game-container').appendChild(pauseOverlay);
+        
+        let isPaused = false;
+        
+        // Function to open the game modal
+        function openGameModal() {
+            gameModal.style.display = 'block';
+            // Only load the game when the modal is opened
+            gameIframe.src = 'RPG/index.html';
+            
+            // Add escape key listener
+            document.addEventListener('keydown', handleEscapeKey);
+            
+            // Prevent scrolling on the body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Function to close the game modal
+        function closeGameModal() {
+            gameModal.style.display = 'none';
+            // Stop the game by setting iframe src to empty
+            gameIframe.src = 'about:blank';
+            
+            // Remove escape key listener
+            document.removeEventListener('keydown', handleEscapeKey);
+            
+            // Restore scrolling
+            document.body.style.overflow = 'auto';
+            
+            // Reset pause state
+            isPaused = false;
+            pauseOverlay.style.display = 'none';
+            pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+        
+        // Function to toggle pause state
+        function togglePause() {
+            isPaused = !isPaused;
+            
+            if (isPaused) {
+                // Show pause overlay
+                pauseOverlay.style.display = 'flex';
+                pauseButton.innerHTML = '<i class="fas fa-play"></i>';
+                
+                // Try to pause the game (multiple methods)
+                
+                // Method 1: Try to communicate with Godot via postMessage
+                gameIframe.contentWindow.postMessage('pause', '*');
+                
+                // Method 2: CSS approach to visually pause the game
+                gameIframe.style.opacity = '0.5';
+                gameIframe.style.pointerEvents = 'none';
+                
+                // Method 3: Audio approach - mute the iframe (if browser supports it)
+                try {
+                    gameIframe.contentWindow.postMessage('mute', '*');
+                } catch (e) {
+                    console.log('Could not mute game directly');
+                }
+            } else {
+                // Hide pause overlay
+                pauseOverlay.style.display = 'none';
+                pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+                
+                // Resume the game
+                gameIframe.contentWindow.postMessage('resume', '*');
+                gameIframe.style.opacity = '1';
+                gameIframe.style.pointerEvents = 'auto';
+                
+                // Unmute
+                try {
+                    gameIframe.contentWindow.postMessage('unmute', '*');
+                } catch (e) {
+                    console.log('Could not unmute game directly');
+                }
+            }
+        }
+        
+        // Handle escape key press
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape') {
+                closeGameModal();
+            }
+        }
+        
+        // Event listeners
+        playButton.addEventListener('click', openGameModal);
+        closeButton.addEventListener('click', closeGameModal);
+        pauseButton.addEventListener('click', togglePause);
+        
+        // Close the modal if clicked outside of the content
+        gameModal.addEventListener('click', function(e) {
+            if (e.target === gameModal) {
+                closeGameModal();
+            }
+        });
+    });
+</script>
         <div class="projects-container">
             <div class="project-card">
                 <div class="project-img" style="background-image: url('/api/placeholder/400/320'); background-position: center; background-size: cover; background-color: #f5f5f5;">
@@ -584,27 +864,6 @@
                     <a href="https://github.com/Gavmotion1/mini-saas" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-img" style="background-image: url('/api/placeholder/400/320'); background-position: center; background-size: cover; background-color: #f5f5f5;">
-                    <!-- GitHub Repositories Image -->
-                </div>
-                <div class="project-content">
-                    <h3>GitHub Repositories</h3>
-                    <p>Collection of coding projects demonstrating clean, organized code.</p>
-                    <a href="https://github.com/Gavmotion1" target="_blank" class="project-link">View Projects <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img" style="background-image: url('/api/placeholder/400/320'); background-position: center; background-size: cover; background-color: #f5f5f5;">
-                    <!-- Python Applications Image -->
-                </div>
-                <div class="project-content">
-                    <h3>Python Applications</h3>
-                    <p>Interactive applications built with Python showcasing problem-solving skills.</p>
-                    <a href="https://github.com/Gavmotion1" target="_blank" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Social Media Section -->
