@@ -1,0 +1,21 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1746113408
+export_presets.cfg::TextFile::-1::1746113408::0::1::::<><><>0<>0<><>::
+index.apple-touch-icon.png::CompressedTexture2D::8170646962190209849::1746113407::1746113468::1::::<><><>0<>0<>82f074bf9b60084b91867eed324a7825<>res://.godot/imported/index.apple-touch-icon.png-8085a11cc297d91deb55511843765958.ctex::
+index.icon.png::CompressedTexture2D::4746771908477010466::1746113407::1746113468::1::::<><><>0<>0<>544f5858ec76bb5ee56c54c97b0912df<>res://.godot/imported/index.icon.png-5665fad188e88d1e882500a4376bfe02.ctex::
+index.png::CompressedTexture2D::4529893640784024743::1746113407::1746113468::1::::<><><>0<>0<>3773d218974205491d545893dba8d1e9<>res://.godot/imported/index.png-5122033cac747157decad52589e2295c.ctex::
+main.tscn::PackedScene/PackedScene::5501555148516182359::1746112370::0::1::::<><><>0<>0<><>::uid://ots7x6510goe::::res://assets/caimos/TX Tileset Grass.png<>uid://cygs0wydf2ro5::::res://player.tscn<>uid://dl0w8d8ihknj4::::res://assets/caimos/TX Tileset Stone Ground.png<>uid://dfsijq37yoh81::::res://assets/caimos/TX Struct.png<>uid://bb838s8mpggbg::::res://assets/caimos/TX Shadow.png<>uid://brn07dl0b5ju8::::res://assets/caimos/TX Shadow Plant.png<>uid://dmq2lxtd12167::::res://assets/caimos/TX Props.png<>uid://cs2t3c02qpt58::::res://assets/caimos/TX Plant.png<>uid://7su3qibmrtjw::::res://assets/caimos/TX Tileset Wall.png
+player.gd::GDScript/GDScript::4593697528878083526::1746112370::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene/PackedScene::6470898624673835206::1746112370::0::1::::<><><>0<>0<><>::uid://b6phr6nhsxnp3::::res://player.gd<>uid://cci0g64ym1ptf::::res://assets/knight.png
+::res://assets/::1746112517
+knight.png::CompressedTexture2D/CompressedTexture2D::4931264390408044695::1746112370::1746112517::1::::<><><>0<>0<>30fe2d04c67c96e08e169a5476d75747<>res://.godot/imported/knight.png-b33800fb7ddfd7bcabc4517f1e9e68e8.ctex::
+::res://assets/caimos/::1746112517
+TX Plant.png::CompressedTexture2D/CompressedTexture2D::6093182522237859969::1746112370::1746112517::1::::<><><>0<>0<>05c7bbd0d1704446aab0b2db3a1fe51d<>res://.godot/imported/TX Plant.png-8b5362bad8609eaf8062d3f213320923.ctex::
+TX Player.png::CompressedTexture2D/CompressedTexture2D::3967651942433404172::1746112370::1746112517::1::::<><><>0<>0<>e09f65e8b91f53bcaaffde127d371c4a<>res://.godot/imported/TX Player.png-886c892e405d78ed1515b97a29d16922.ctex::
+TX Props.png::CompressedTexture2D/CompressedTexture2D::8036218458898777150::1746112370::1746112517::1::::<><><>0<>0<>1cb8f192efa5e7c38ecc044470f467bd<>res://.godot/imported/TX Props.png-e1f27227d304399b55a59bd8336fb658.ctex::
+TX Shadow Plant.png::CompressedTexture2D/CompressedTexture2D::3608043182267858125::1746112370::1746112517::1::::<><><>0<>0<>fffc27f17e782cb3618a6000ae3c0709<>res://.godot/imported/TX Shadow Plant.png-ce120ac1c56f3a4e004d4099dbcd632b.ctex::
+TX Shadow.png::CompressedTexture2D/CompressedTexture2D::2526493997175789856::1746112370::1746112517::1::::<><><>0<>0<>84132b3a0bae684557aee3816497bab6<>res://.godot/imported/TX Shadow.png-4ac029203476dd68bd3b138bd529b07d.ctex::
+TX Struct.png::CompressedTexture2D/CompressedTexture2D::7547867762044507912::1746112370::1746112517::1::::<><><>0<>0<>a0b346806742429b562f3ec91745e29b<>res://.godot/imported/TX Struct.png-85af2aadcf8c44b1b30abd63e731b713.ctex::
+TX Tileset Grass.png::CompressedTexture2D/CompressedTexture2D::1023018296859129824::1746112370::1746112517::1::::<><><>0<>0<>bd9827ed400724de104e41ed878d863e<>res://.godot/imported/TX Tileset Grass.png-06f0909c6c2c93bff3520d062775b448.ctex::
+TX Tileset Stone Ground.png::CompressedTexture2D/CompressedTexture2D::7984343688910719875::1746112370::1746112517::1::::<><><>0<>0<>ef3bb2df19dc1a286f1ca345fc4a3033<>res://.godot/imported/TX Tileset Stone Ground.png-41be7ffa29ccc715883f16454c605725.ctex::
+TX Tileset Wall.png::CompressedTexture2D/CompressedTexture2D::2284466990868978172::1746112370::1746112517::1::::<><><>0<>0<>2b0fe4f69fa163a83ef5ed4c9fdc7ffb<>res://.godot/imported/TX Tileset Wall.png-e2a8e87e7e2bd7691174ec6f424e405e.ctex::
